@@ -1,4 +1,5 @@
-naMysli = 16
+import random
+naMysli = random.randint(1,20)
 licznik = 0
 print("Mam na myśli pewną liczbę z zakresu od 1 do 20.")
 while 1:
@@ -11,3 +12,5 @@ while 1:
         print("Podana liczba jest za duża")
     else:
         print("podana liczba jest za mała")
+
+input()
