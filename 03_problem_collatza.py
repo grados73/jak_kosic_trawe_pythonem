@@ -1,3 +1,4 @@
+licznik = 0
 def collatz(number):
     if(number %2 == 0):
         print(int(number / 2))
@@ -15,7 +16,9 @@ while 1:
 
 while 1:
    if liczba == 1:
+        print("Sprowadzono do wartosci \"1\" w " + str(licznik) + " krokach.")
         break
    else:
         liczba = collatz(liczba)
+        licznik = licznik + 1
 
