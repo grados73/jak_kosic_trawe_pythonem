@@ -40,7 +40,6 @@ while 1:
     elif TypWyswietlania == 0:
         rysuj_0()
     elif TypWyswietlania == 1:
-    elif TypWyswietlania == 1:
         rysuj_90()
     elif TypWyswietlania == 2:
         rysuj_180()
