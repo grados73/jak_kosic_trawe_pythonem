@@ -21,3 +21,4 @@ while 1:
         Inventory[item] = Inventory[item] + num
 
 displayInventory(Inventory)
+input()
