@@ -1,0 +1,227 @@
+print("Nazywam sie", "Python", sep="-", end="! ") ##sep czym maja byc oddzielone argumenty, default sep=" "
+												  ##end co ma byc na koncu print,default end="enter"
+												 
+print(
+"""
++================================+
+| Witaj w mojej grze, mugolu!    |
+| Wprowadź liczbę całkowitą      |
+| i zgadnij, jaki numer          |
+| wybrałem dla ciebie.           |
+| Jaki jest więc sekretny numer? |
++================================+
+""")
+
+######################################################
+cokolwiek = input("Powiedz mi cokolwiek...")      ##pobieranie stringa z klawiatury i przypisywanie do zmiennej
+cokolwiek = float(input("Wpisz liczbę: "))		  ##pobieranie float i przypisanie do zmiennej
+cokolwiek = int(input("Wpisz liczbe"))			  ## pobieranie int i przypisanie do zmiennej
+
+największaLiczba = max(liczba1, liczba2, liczba3)  ##szuka najwiekszej liczby z arg
+najmniejszaLiczba = min(liczba1, liczba2, liczba3) ##szuka najmniejszej liczby z arg
+
+
+round(liczba1, 2)
+
+########################## LISTY #################################
+#####---===       nazwa zwykłej zmiennej to nazwa jej treści;
+###---===         nazwa listy jest nazwą miejsca w pamięci, w którym przechowywana jest lista.
+lista = [10, 8, 6, 4, 2]
+nowa_lista = lista[1:3] ##kopiowanie zawartosci listy do nowej listy, skopiuje 8 i 6, tzn 1 i 2 element - lista[start:end] end to end-1
+nowa_lista = lista[1:-1]##wynikiem tego bedzie [8, 6, 4], end to pierwszy element który nie jest kopiowany
+
+print(len(liczby)) # wyświetlanie długości listy
+
+del liczby[1] ## usuwa 2 element listy, skraca dlugosc listy o 1 
+del lista[1:3] ## usuwa 1 i 2 element z listy
+del lista[:] ## usuniecie całej listy
+
+lista.append(wartość) ## dodaje na koncu listy o nazwie "lista" wartosc "wartosc"
+lista.insert(miejsce, wartość) ## dodaje w wyznaczone miejsce na liscie wartosc, cala reszta przesuwa sie w prawo
+lista.sort()  ## metoda do sortowania listy
+lista.reverse() ## metoda do odwracania kolejności listy
+
+elem in lista ##szuka zmiennej elem w liście, daje True jesli sie znajduje
+5 not in lista ##szuka zmiennej na liscie daje True jesli nie ma zmiennej
+
+##operacje na ciagach znakow #############################################
+napis = "kamil"
+print(napis[0]) ## wyswietli k
+
+for ch in "john.smith@pythoninstitute.org":
+    if ch == "@":
+        break
+    print(ch, end="")
+
+for cyfra in "0165031806510":
+    if cyfra == "0":
+        print("x", end="")
+        continue
+    print(cyfra, end="")
+
+moja_lista = ["biały", "różowy", "niebieski", "żółty", "zielony"]
+for kolor in moja_lista:
+    print(kolor)
+	
+## Sprawdza ile liczb z 1 zbioru jest w 2 zbiorze, ile w wylosowano jest obstawiono
+for liczba in obstawiono:
+    if liczba in wylosowano:
+	    trafiono += 1
+print(trafiono)
+	
+dwojki = [2 ** i for i in range(8)] ## uuzupelnienie listy dwojki kolejnymi wielokrotnosciami licz.2 (1, 2, 4, 8, 16, 32, 64, 128)
+szachownica = [[PUSTY for i in range(8)] for j in range(8)] ## tworzy szachownice 8x8
+for i in range(8):
+    rzad = [PUSTY for i in range(8)]
+    szachownica.append(rzad)
+
+	##### ZAMIANA WARTOSCI ZMIENNNYCH ###############
+zmienna1, zmienna2 = zmienna2, zmienna1
+#######################################################
+if ładnaPogoda:
+    pójdziemyNaSpacer()
+elif biletyDostępne:
+    pójdziemyDoKina()
+elif dostaniemyStolik:
+    zjemyKolacje()
+else:
+    zagramyWSzachyWDomu()
+	
+########################################
+while wyrażenie_warunkowe:
+    instrukcja
+
+###########################################	
+
+for i in range(8):
+    print("Wartość i wynosi obecnie", i)
+	
+	
+for i in range(start, stop, krok):
+    print("Wartość i wynosi obecnie", i)
+	
+####################################################
+break         ##natychmiast wychodzi z pętli i bezwarunkowo kończy działanie pętli; 
+		      ##program zaczyna wykonywać instrukcję najbliższą ciału pętli,
+continue -    ##zachowuje się tak, jakby program nagle dotarł do końca ciała pętli; 
+			  ##rozpoczyna się kolejna pętla, a wyrażenie warunku jest natychmiast testowane.
+			  
+################# OPERACJE NA BITACH ##############################
+if rejestr_flag & maska:    #CZY BIT JEST PODNIESIONY CZY NIE
+    # mój bit jest ustawiony
+else:
+    # mój bit jest zerowany
+
+	
+#WYZEROWANIE BITU
+rejestr_flag = rejestr_flag & ~maska
+
+#USTAWIANIE BITU
+rejestr_flag = rejestr_flag | maska
+#x | 1 = 1
+#x | 0 = x
+
+rejestr_flag = rejestr_flag ^ maska
+#x ^ 1 = ~x
+#x ^ 0 = x
+
+#PRZESUNIĘCIE BITU
+wartość << bity
+wartość >> bity
+
+var1 = var >> 1 #dzielenie przez 2 == var/2
+var2 = var << 2 #mnozenie razy 2 == var*4
+
+############# SORTOWANIE BĄBELKOWE ####################################
+lista = []
+swapped = True
+num = int(input("Ile elementów chcesz posortować: "))
+
+for i in range(num):
+    val = float(input("Wprowadź element listy: "))
+    lista.append(val)
+
+while swapped:
+    swapped = False
+    for i in range(len(lista) - 1):
+        if lista[i] > lista[i + 1]:
+            swapped = True
+            lista[i], lista[i + 1] = lista[i + 1], lista[i]
+
+print("\nPosortowane:")
+print(lista)
+#######################################################################
+Priorytet	     Operator	
+1	             +, -	              jednoargumentowe
+2	             **	
+3	             *, /, //, %	
+4	             +, -	              dwuargumentowe
+5	             <, <=, >, >=	
+6	             ==, !=	
+7 				 ==, !=
+8				 &
+9				 |
+10				 =,+=,-=,*=,/=,%=,&=,^=,|=,>>=,<<=
+
+
+######### ---=== FUNKCJE ===--- #########
+
+def przedstawienie(imie="Jan", nazwisko="Kowalski"):
+    print("Cześć, nazywam się", imie, nazwisko)
+	
+	
+przedstawienie(nazwisko = "Dynamit", imie="Robert")
+
+
+#symbol odwrotnego ukośnika (\). Jeśli użyjesz go w kodzie Pythona i umieścisz go na końcu linii,
+# powie to Pythonowi, aby kontynuował kod w następnej linijce.
+
+############### --=== KROTKI === -- ####################
+t1 = (1, )
+t2 = (2, )
+t3 = (3, var)
+
+t1, t2, t3 = t2, t3, t1
+
+moja_krotka = tuple(moja_lista) ## funkcja tuple zmienia liste w  krotke
+lst = list(tup) ## konwersja z krotki na liste
+duplicates = tup.count(2) ## metoda .count liczy ile liczb 2 jest w krotce tup i przypisuje to do zmiennej duplicates
+
+############## SŁOWNIKI ##########################
+slownik = {"kot" : "gato", "pies" : "perro", "koń" : "caballo"} #pary {klucz : wartosc}
+numery_telefonow = {'szef' : 5551234567, 'Marian' : 22657854310}
+pusty_slownik = {}
+
+print(slownik)
+print(slownik['kot'])
+print(numery_telefonow['Marian'])
+
+slowa = ['kot', 'lew', 'koń']
+
+for slowo in slowa:
+    if slowo in slownik:
+        print(slowo, "->", slownik[slowo])
+    else:
+        print("W słowniku nie istnieje słowo:", slowo)
+		
+slownik['kot'] = 'gatito' #zmiana wartosci dla klucza "kot" z slownika slownik
+slownik['świnka'] = 'paperas' # dodanie nowej pary {klucz : wartosc}, wystarczy przysac wartosc do klucza ktory jeszcze nie istnieje w slowniku
+slownik.update({"kurczak" : "pollo"}) #alternatywna opcja
+del slownik['pies'] #usuwanie klucza i wartosci, 'pies' to klucz, od razu usuwa tez wartosc
+
+for klucz in slownik.keys():  #for klucz in sorted(slownik.keys()):  .keys zwraca wszystkie klucze ze slownika
+    print(klucz, "->", slownik[klucz]
+	
+for hiszpanski in slownik.values(): #.values zwraca wszystkie wartosci
+    print(hiszpanski)
+	
+
+for polski, hiszpanski in slownik.items(): #metoda .items zwraca liste krotek
+    print(polski, "->", hiszpanski)
+	
+	
+kopia_pol_ang = pol_ang.copy()##kopiowanie slownika
+pol_ang.clear()   # usuwa wszystkie elementy
+duplicates = tup.count(2) ## metoda .count liczy ile liczb 2 jest w krotce tup i przypisuje to do zmiennej duplicates
+d3.update(item) ## uaktualnia slownik d3 o item
+col_dict = dict(colors) ## zmiana krotki colors w slownik col_dict
