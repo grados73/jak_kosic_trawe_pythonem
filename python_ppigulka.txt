@@ -22,8 +22,9 @@ najmniejszaLiczba = min(liczba1, liczba2, liczba3) ##szuka najmniejszej liczby z
 
 
 round(liczba1, 2)
-
+##################################################################
 ########################## LISTY #################################
+##################################################################
 #####---===       nazwa zwykłej zmiennej to nazwa jej treści;
 ###---===         nazwa listy jest nazwą miejsca w pamięci, w którym przechowywana jest lista.
 lista = [10, 8, 6, 4, 2]
@@ -39,12 +40,19 @@ del lista[:] ## usuniecie całej listy
 lista.append(wartość) ## dodaje na koncu listy o nazwie "lista" wartosc "wartosc"
 lista.insert(miejsce, wartość) ## dodaje w wyznaczone miejsce na liscie wartosc, cala reszta przesuwa sie w prawo
 lista.sort()  ## metoda do sortowania listy
+lista.sort(key=str.lower) ## metoda do sortowania listy nie zwraca uwagi na wielkosc znakow
+lista.sort(reverse = True) ## sortuje liste w odwrotnej kolejnosci
 lista.reverse() ## metoda do odwracania kolejności listy
+lista.index('kon') ## wyswietla index konia
+lista.remove('kot') ## usuwa kota z listy
 
 elem in lista ##szuka zmiennej elem w liście, daje True jesli sie znajduje
 5 not in lista ##szuka zmiennej na liscie daje True jesli nie ma zmiennej
 
-##operacje na ciagach znakow #############################################
+##################################################################
+####################### OPERACJE NA CIAGACH ZNAKOW ###############
+##################################################################
+
 napis = "kamil"
 print(napis[0]) ## wyswietli k
 
@@ -74,10 +82,14 @@ szachownica = [[PUSTY for i in range(8)] for j in range(8)] ## tworzy szachownic
 for i in range(8):
     rzad = [PUSTY for i in range(8)]
     szachownica.append(rzad)
-
-	##### ZAMIANA WARTOSCI ZMIENNNYCH ###############
+    
+########### ZAMIANA WARTOSCI ZMIENNNYCH ###############
 zmienna1, zmienna2 = zmienna2, zmienna1
-#######################################################
+
+##################################################################
+############# PETLE I INSTRUKCJE STERUJACE #######################
+##################################################################
+
 if ładnaPogoda:
     pójdziemyNaSpacer()
 elif biletyDostępne:
@@ -150,6 +162,7 @@ while swapped:
 
 print("\nPosortowane:")
 print(lista)
+
 #######################################################################
 Priorytet	     Operator	
 1	             +, -	              jednoargumentowe
