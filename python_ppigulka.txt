@@ -4,11 +4,11 @@ print("Nazywam sie", "Python", sep="-", end="! ") ##sep czym maja byc oddzielone
 print(
 """
 +================================+
-| Witaj w mojej grze, mugolu!    |
-| Wprowadź liczbę całkowitą      |
-| i zgadnij, jaki numer          |
-| wybrałem dla ciebie.           |
-| Jaki jest więc sekretny numer? |
+| Witaj w mojej ściądze, mugolu! |
+| Wszelkie kopiowanie dozwolone  |
+| pod warunkiem wskazania        |
+| Autora                         |
+|                     ~grados73  |
 +================================+
 """)
 
