@@ -1,3 +1,5 @@
+#! python3
+
 while(1):
     liczba = int(input("Podaj liczbe przez ktora mam podzielic 50: "))
     try:

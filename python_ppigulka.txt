@@ -30,6 +30,10 @@ round(liczba1, 2)
 lista = [10, 8, 6, 4, 2]
 nowa_lista = lista[1:3] ##kopiowanie zawartosci listy do nowej listy, skopiuje 8 i 6, tzn 1 i 2 element - lista[start:end] end to end-1
 nowa_lista = lista[1:-1]##wynikiem tego bedzie [8, 6, 4], end to pierwszy element który nie jest kopiowany
+nowa_lista = lista ## przekazuje odwolanie tylko do starej listy, zmieniając nową liste zmienimy też starą i na odwrot,
+## żeby faktycznie skopiować wartości do nowej listy trzeba:
+import copy
+cheese = copy.copy(spam)
 
 print(len(liczby)) # wyświetlanie długości listy
 
@@ -39,12 +43,17 @@ del lista[:] ## usuniecie całej listy
 
 lista.append(wartość) ## dodaje na koncu listy o nazwie "lista" wartosc "wartosc"
 lista.insert(miejsce, wartość) ## dodaje w wyznaczone miejsce na liscie wartosc, cala reszta przesuwa sie w prawo
+lista.remove('kot') ## usuwa kota z listy
+
 lista.sort()  ## metoda do sortowania listy
 lista.sort(key=str.lower) ## metoda do sortowania listy nie zwraca uwagi na wielkosc znakow
 lista.sort(reverse = True) ## sortuje liste w odwrotnej kolejnosci
 lista.reverse() ## metoda do odwracania kolejności listy
-lista.index('kon') ## wyswietla index konia
-lista.remove('kot') ## usuwa kota z listy
+lista.index('kon') ## wyswietla index konia w liscie 
+
+list(lista) ## zwraca liste w postaci listy
+tuple(lista) ## zwraca liste w postaci krotki
+
 
 elem in lista ##szuka zmiennej elem w liście, daje True jesli sie znajduje
 5 not in lista ##szuka zmiennej na liscie daje True jesli nie ma zmiennej
@@ -76,7 +85,37 @@ for liczba in obstawiono:
     if liczba in wylosowano:
 	    trafiono += 1
 print(trafiono)
+
+ciagznakow.upper() ## zamienia wszystkie znaki w ciagznakow na DUŻE
+ciagznakow.lower()
+ciagznakow.isupper() ## zwraca True, jesli ciagznakow zawiera chociaz jedna litere i wszystkie z nich sa duze
+ciagznakow.islower()
+ciagznakow.isalpha() ## zwraca True, jesli ciag tekstowy sklada sie wylacznie z liter i nie jest pusty_slownik
+ciagznakow.isalnum() ## zwraca True, jesli ciag tekstowy sklada sie wylacznie z liter i cyfr i nie jest pusty
+ciagznakow.isdecimal() ## zwraca True, jesli ciag tekstowy sklada sie wylacznie z cyfr i nie jest pusty
+ciagznakow.isspace() ## zwraca True, jesli ciag tekstowy sklada sie wylacznie zspacji, tabulatorow i \n i nie jest pusty
+ciagznakow.istitle() ## zwraca True, jesli ciag tekstowy sklada sie wylacznie ze slow rozpoczynajacych sie duza litera 
+                     ## po ktorej sa tylko male litery
+ciagznakow.startswith('Witaj') ## zwraca True, jesli ciag tekstowy podany jako argument znajduje sie na poczatku tekstu
+ciagznakow.endswith('Zegnaj')  ## zwraca True, jesli ciag tekstowy podany jako argument znajduje sie na koncu tekstu
+.join() ##sluzy do laczenia ciagow tekstowych
+.split() ## sluzy do przeksztalcania ciagu tekstowego w liste
+ciagznakow.rjust(10, '*') ## wyrownanie tekstu do prawej do 10 znakow znakami *
+ciagznakow.ljust(20, ' ') ## wyrownanie tekstu do lewej do 20 znakow spacjami
+ciagznakow.center(20, '=') ## wyrownanie tekstu do srodka do szerokosci 20 znakow, znakami =
+spam= '   witaj   ' ## funkcje do usuwania bialych znakow :
+spam.strip() -> 'witaj'
+spam.lstrip() -> 'witaj   '
+spam.rstrip() -> '   witaj'
+
+############ KOPIOWANIE I WKLEJANIE CIAGOW TEKSTOWYCH ############################
+
+import pyperclip
+pyperclip.copy('witaj')
+pyperclip.paste()
+'witaj'
 	
+###############################################################################    
 dwojki = [2 ** i for i in range(8)] ## uuzupelnienie listy dwojki kolejnymi wielokrotnosciami licz.2 (1, 2, 4, 8, 16, 32, 64, 128)
 szachownica = [[PUSTY for i in range(8)] for j in range(8)] ## tworzy szachownice 8x8
 for i in range(8):
@@ -189,7 +228,10 @@ przedstawienie(nazwisko = "Dynamit", imie="Robert")
 #symbol odwrotnego ukośnika (\). Jeśli użyjesz go w kodzie Pythona i umieścisz go na końcu linii,
 # powie to Pythonowi, aby kontynuował kod w następnej linijce.
 
+
+########################################################
 ############### --=== KROTKI === -- ####################
+########################################################
 t1 = (1, )
 t2 = (2, )
 t3 = (3, var)
@@ -200,7 +242,10 @@ moja_krotka = tuple(moja_lista) ## funkcja tuple zmienia liste w  krotke
 lst = list(tup) ## konwersja z krotki na liste
 duplicates = tup.count(2) ## metoda .count liczy ile liczb 2 jest w krotce tup i przypisuje to do zmiennej duplicates
 
-############## SŁOWNIKI ##########################
+########################################################
+#################### SŁOWNIKI ##########################
+########################################################
+
 slownik = {"kot" : "gato", "pies" : "perro", "koń" : "caballo"} #pary {klucz : wartosc}
 numery_telefonow = {'szef' : 5551234567, 'Marian' : 22657854310}
 pusty_slownik = {}
@@ -238,3 +283,8 @@ pol_ang.clear()   # usuwa wszystkie elementy
 duplicates = tup.count(2) ## metoda .count liczy ile liczb 2 jest w krotce tup i przypisuje to do zmiennej duplicates
 d3.update(item) ## uaktualnia slownik d3 o item
 col_dict = dict(colors) ## zmiana krotki colors w slownik col_dict
+slownik.get(klucz, wartosc_awaryjna) ## pobiera wartość spod klucza, a jeśli on nie istnieje to zwraca wartosc_awaryjna
+
+Tworzenie plikow .bat
+@py.exe D:\Python\jak_kosic_trawe_pythonem\08_nauka_wyjatkow.py %*
+zapisac plik z zawartoscia scieżki do pliku z rozszerzeniem .bat
