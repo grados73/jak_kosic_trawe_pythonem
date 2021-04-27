@@ -1,5 +1,4 @@
 #! python3
-## 12_szukaj_nr_tel_i_email_w_schowku.py
 
 import pyperclip
 import re
@@ -18,6 +17,24 @@ emailRegex = re.compile(r'''(
     [a-zA-Z0-9._%+-]+       ## nazwa użytkownika
     @                       ## Znak @ - wymagany
     [a-zA-Z0-9.-]+          ## Nazwa domeny
-    (\.[a-zA-Z]{2-4})       ## kropka i identyfikator, np. '.com', '.pl'
+    (\.[a-zA-Z]{2,4})       ## kropka i identyfikator, np. '.com', '.pl'
 )''', re.VERBOSE)
 
+##WYSZUKIWANIE DOPASOOWAŃ W SCHOWKU
+text = str(pyperclip.paste()) ## wklejenie zawartości schowka do zmiennej text
+matches = [] ##pusta tablica na wyniki dopasowania
+for groups in phoneRegex.findall(text):
+    phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+    matches.append(phoneNum)
+for groups in emailRegex.findall(text):
+    matches.append(groups[0])
+
+##KOPIOWANIE ZNALEZIONYCH NUMERÓW I EMAILI DO SCHOWKA
+if len(matches) > 0:
+    pyperclip.copy('\n'.join(matches))
+    print('Skopiowano do schowka: ')
+    print('\n'.join(matches))
+else:
+    print('Nie znaleziono żadnego numeru telefonu ani adresu email :( ')
+
+input()
