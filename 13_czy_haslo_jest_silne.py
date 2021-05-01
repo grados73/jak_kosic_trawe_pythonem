@@ -20,23 +20,19 @@ while(1):
         print("Twoje hasło jest zbyt krótkie. Hasło musi zawierać przynajmniej 8 znaków!")
         break
 
-    mo1 = maleLiteryRegex.search(text)
-    if  mo1 == None:
+    if  maleLiteryRegex.search(text) == None:
         print("Twoje hasło jest słabe. Hasło musi zawierać małe litery!")
         break
 
-    mo2 = duzeLiteryRegex.search(text)
-    if mo2 == None:
+    if duzeLiteryRegex.search(text) == None:
         print("Twoje hasło jest słabe. Hasło musi zawierać duże litery!")
         break
 
-    mo3 = cyfryRegex.search(text)
-    if mo3 == None:
+    if cyfryRegex.search(text) == None:
         print("Twoje hasło jest słabe. Hasło musi zawierać cyfry!")
         break
 
-    mo4 = spacjeRegex.search(text)
-    if mo4 != None:
+    if spacjeRegex.search(text) != None:
         print("Twoje hasło zawiera spacje lub inny znak biały, to niedozwolone!")
         break
 
