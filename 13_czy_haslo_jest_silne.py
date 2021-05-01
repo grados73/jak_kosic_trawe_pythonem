@@ -10,6 +10,8 @@ maleLiteryRegex = re.compile(r'[a-z]+')
 duzeLiteryRegex = re.compile(r'[A-Z]+')
 ### WYRAŻENIE REGULARNE SPRAWDZAJĄCE CZY ZAWIERA CYFRY
 cyfryRegex = re.compile(r'[0-9]+')
+### WYRAŻENIE REGULARNE SPRAWDZAJĄCE CZY ZAWIERA SPACJE
+spacjeRegex = re.compile(r'\s+')
 
 ## SPRAWDZENIE SIŁY HASŁA ZNAJDUJĄCEGO SIĘ W SCHOWKU
 while(1):
@@ -32,6 +34,12 @@ while(1):
     if mo3 == None:
         print("Twoje hasło jest słabe. Hasło musi zawierać cyfry!")
         break
+
+    mo4 = spacjeRegex.search(text)
+    if mo4 != None:
+        print("Twoje hasło zawiera spacje lub inny znak biały, to niedozwolone!")
+        break
+
     print("Twoje hasło jest wystarczająco silne.")
     break
 
