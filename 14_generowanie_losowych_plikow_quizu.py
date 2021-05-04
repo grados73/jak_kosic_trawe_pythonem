@@ -36,4 +36,14 @@ for quizNum in range(10):
         wrongAnswers = random.sample(wrongAnswers, 3)
         answerOptions = wrongAnswers + [correctAnswer]
         random.shuffle(answerOptions)
-        
+
+        ##Zapis pytania i odpowiedzi w pliku quizu
+        quizFile.write('%s. Co jest stolicą stanu %s?\n' % (questionNum + 1, states[questionNum]))
+        for i in range(4):
+            quizFile.write('   %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizFile.write('\n')
+
+        ##Zapis odpowiedzi w pliku
+        answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
+        quizFile.close()
+        answerKeyFile.close()
