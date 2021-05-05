@@ -13,7 +13,7 @@ capitals={'Alabama' : 'Montgomery', 'Alaska' : 'Juneau', 'Arizona' : 'Phoenix', 
           'Wirginia Zachodnia' : 'Charleston', 'Wisconsin' : 'Madison', 'Wyoming' : 'Cheyenne'}
 
 ## Wygenerowanie 35 plików quizu
-for quizNum in range(10):
+for quizNum in range(35):
     #Utworzenie plików z quizem oraz odp
     quizFile = open('D:\\Python\\jak_kosic_trawe_pythonem\\quizy\\capitalsQuiz%s.txt' % (quizNum + 1), 'w')
     answerKeyFile = open('D:\\Python\\jak_kosic_trawe_pythonem\\quizy\\capitalsQuiz_answers%s.txt' % (quizNum + 1), 'w')
@@ -28,7 +28,7 @@ for quizNum in range(10):
     random.shuffle(states)
 
     ##Iteracja przez 50 stanów i utworzenie pytania dotyczącego każdego z nich
-    for questionNum in range(50):
+    for questionNum in range(40):
         ##Przygotowanie prawidłowych i błędnych odp
         correctAnswer = capitals[states[questionNum]]
         wrongAnswers = list(capitals.values())
@@ -38,6 +38,8 @@ for quizNum in range(10):
         random.shuffle(answerOptions)
 
         ##Zapis pytania i odpowiedzi w pliku quizu
+        quizFile = open('D:\\Python\\jak_kosic_trawe_pythonem\\quizy\\capitalsQuiz%s.txt' % (quizNum + 1), 'w')
+        answerKeyFile = open('D:\\Python\\jak_kosic_trawe_pythonem\\quizy\\capitalsQuiz_answers%s.txt' % (quizNum + 1), 'w')
         quizFile.write('%s. Co jest stolicą stanu %s?\n' % (questionNum + 1, states[questionNum]))
         for i in range(4):
             quizFile.write('   %s. %s\n' % ('ABCD'[i], answerOptions[i]))
